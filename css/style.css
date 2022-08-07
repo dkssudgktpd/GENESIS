@@ -61,11 +61,12 @@ body {
   width: 100%;
   z-index: 9999;
   background-color: #111;
+  border-bottom: 1px solid #1e1e1e;
 }
 .header .inner{
   width: 100%;
   max-width: 1920px;
-  padding: 0 140px;
+  padding: 0 120px;
 }
 .header-logo{
   position: relative;
@@ -81,23 +82,28 @@ line-height: 70px;
 }
 .header-depth1{
   float: left;
-  margin-left: 100px;
+  margin-left: 70px;
   
 }
 .header-depth1 > li{
   float: left;
-  margin-right: 20px;
+  margin-right: 60px;
 }
-.header-model{
+.header-depth1 > li:last-child{
+  margin-right: 0;
+}
+
+.header-depth2{
   position: absolute;
   left: 0;
   top: 100%;
   width: 100%;
-  height: 100vh;
+  height: auto;
   max-height: 2850px;
   background-color: #151515;
   z-index: 99;
   overflow-y: auto;
+  display: none;
 }
 
 .header-model-inner{
@@ -105,38 +111,148 @@ line-height: 70px;
   max-width: 1920px;
   padding: 50px 120px 65px;
 }
+
+.depth2-inner{
+  padding: 60px 120px;
+}
 .header-model-list{
   float: left;
 }
 .header-model-list li{
   margin: 15px 0;
-  width: 280px;
+  width: 200px;
+}
+.header-model-list li button{
+  background-color: transparent;
+  border: 0;
+  color: #ddd;
+  opacity: 0.8;
+  cursor: pointer;
+  font-size: 17px;
+}
+.header-model-list li .model-list-active{
+  color: #fff;
+  opacity: 1;
+}
+.header-model-list li button:hover{
+  color: #fff;
+  opacity: 1;
 }
 .header-model-list li:first-child{
   margin-top: 0;
   margin-bottom: 40px;
 }
-
-.header-model-car{
-  float: left;
+.model-all{
+  position: relative;
   display: block;
-  padding-left: 80px;
+}
+.sw-model1{
+  position: relative;
+  float: left;
+  width: 1380px;
+  border-left: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 30px;
+  display: block;
+}
+.model-sedan, .model-suv{
+  position: relative;
+  float: left;
+  width: 1380px;
+  border-left: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 30px;
+}
+.model-suv{
+  display: none;
+}
+.model-sedan{
+  display: none;
+}
+.header-model-car{
+  position: relative;
+  width: 100%;
+  padding: 0 80px;
+  padding-bottom: 20px;
+
 }
 .car-list{
-  width: 250px;
-  padding: 25px 0;
+  position: relative;
+  width: 310px;
+  padding: 25px 30px;
+  display: inline-block;
+  font-size: 0;
+  margin-right: 140px;
 }
+.car-list:nth-child(3n){
+  margin-right: 0;
+}
+.car-list::before{
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  z-index: -1;
+  transition: background-color 0.5s;
+}
+.car-list:hover::before{
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
 .car-list h4{
+  position: relative;
   font-size: 30px;
   color: #bbb;
   font-weight: 300;
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
+}
+.car-attach{
+  position: absolute;
+  left: 30px;
+  top: 65px;
+  font-size: 16px;
+  color: #bbb;
+  font-weight: 300;
+}
+.car-list .header-new{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 50px;
+  height: auto;
+}
+.car-list .header-new2{
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 50px;
+  height: auto;
+}
+.car-list .header-ev{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 20px;
+  height: auto;
 }
 .car-list img{
   width: 100%;
   margin-bottom: 35px;
 }
-
+.car-list a{
+  position: relative;
+  display: block;
+  font-size: 14px;
+}
 .header-more{
   position: relative;
   text-align: center;
@@ -146,18 +262,8 @@ line-height: 70px;
   z-index: 1;
   color: #fff;
   margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
 }
-
-.car-list a{
-  display: block;
-  font-size: 14px;
-}
-.car-list a:last-child{
-  margin-top: 10px;
-}
-
-
-
 
 .header-more::after{
   content: '';
@@ -188,22 +294,74 @@ line-height: 70px;
   transition: width .25s ease-in-out,opacity 0ms;
 }
 
+.header-btn-wrap{
+  position: relative;
+}
+.header-btn-wrap:last-child{
+  margin-top: 10px;
+}
+.header-btn-wrap span{
+  position: relative;
+  font-size: 14px;
+  cursor: pointer;
+}
+.header-btn-wrap span i{
+  font-size: 16px;
+}
 
-
-
-
-
-
-
-
-
+.sw-model1 .sw-model-pg{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  display:block;
+  width: auto;
+}
+.sw-model1 .sw-model-pg .swiper-pagination-bullet{
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  opacity: 0.5;
+  margin-right: 15px;
+}
+.sw-model1 .sw-model-pg .swiper-pagination-bullet-active{
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  opacity: 1;
+}
+.sw-header-next{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url(../images/ico-swiper-arrow.webp) no-repeat center;
+  width: 24px;
+  height: 44px;
+  cursor: pointer;
+}
+.sw-header-prev{
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  background: url(../images/ico-swiper-arrow.webp) no-repeat center;
+  width: 24px;
+  height: 44px;
+  cursor: pointer;
+}
 
 
 
 
 
 .header-depth1 > li >a{
-  line-height: 7rem;
+  line-height: 70px;
+  transition: color 0.3s;
+}
+.header-depth1 > li >a:hover{
+  color: #fff;
 }
 .header-search{
   float: right;
