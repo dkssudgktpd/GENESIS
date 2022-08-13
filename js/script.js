@@ -6,10 +6,9 @@ window.onload = function () {
             event.preventDefault();
             headerDepth2.slideUp(1);
             headerDepth2.eq(index).stop().slideToggle();
-
         })
     })
-
+    let 
 
     new Swiper('.sw-model1', {
         pagination: {

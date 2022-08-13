@@ -53,6 +53,8 @@ body {
 .wrap{
   margin-top: 70px;
 }
+
+
 /* header */
 .header{
   position: fixed;
@@ -105,10 +107,22 @@ line-height: 70px;
   overflow-y: auto;
   display: none;
 }
+.header-depth23{
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 2850px;
+  background-color: #151515;
+  z-index: 99;
+  overflow-y: auto;
+  display: block;
+}
 
 .header-model-inner{
   width: 100%;
-  max-width: 1920px;
+  max-width: 2000px;
   padding: 50px 120px 65px;
 }
 
@@ -117,6 +131,7 @@ line-height: 70px;
 }
 .header-model-list{
   float: left;
+  padding-top: 30px;
 }
 .header-model-list li{
   margin: 15px 0;
@@ -352,8 +367,187 @@ line-height: 70px;
   cursor: pointer;
 }
 
+.dpeth2-inner{}
+.header-li-top{
+  position: relative;
+}
+.header-li-top::before{
+  content: '';
+  position: absolute;
+  left: 14%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.header-li-left{
+  display: inline-block;
+  font-size: 0;
+  width: 14%;
+  padding-right: 50px;
+  height: 100%;
+}
+.header-li-left h4{
+  display: block;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
 
+}
+.header-li-left p{
+  font-size: 14px;
+  color: #bbb;
+  letter-spacing: 0.35px;
+  line-height: 24px;
+  font-weight: 300;
+}
+.header-li-right{
+  display: inline-block;
+  font-size: 0;
+  width: calc(100% - 15% - 240px);
+  padding-left: 30px;
+}
 
+.header-depth2-menu > li{
+  display: inline-block;
+  width: 25%;
+  margin-bottom: 30px;
+
+}
+.header-depth2-mainmenu{
+  position: relative;
+  display: inline-block;
+font-size: 16px;
+color: #fff;
+}
+.header-depth2-mainmenu::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.4s;
+}
+.header-depth2-mainmenu:hover::after{
+  width: 100%;
+}
+.header-depth2-menu2{
+padding-top: 30px;
+}
+.header-depth2-menu2 li{}
+.header-depth2-menu2 li a{
+  display: inline-block;
+  font-size: 14px;
+  padding: 9px 0;
+  transition: color 0.3s;
+  font-weight: 300;
+}
+.header-depth2-menu2 li a:hover{
+  color: #fff;
+}
+.header-li-img{
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  width: 240px;
+}
+.header-li-img-box{
+  width: 100%;
+  position: relative;
+}
+.header-li-img-box img{
+  width: 100%;
+}
+.header-li-img-more{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 7%;
+  font-size: 14px;
+  width: 80%;
+  line-height: 50px;
+  color: #141414;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.header-li-img-more::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: width 0ms ease-in-out .75s,opacity .75s 0ms;
+  transition: width 0ms ease-in-out .75s,opacity .75s 0ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #141414;
+  z-index: -1;
+}
+.header-li-img-more:hover{
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.header-li-img-more:hover::before{
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: width .25s ease-in-out,opacity 0ms;
+  transition: width .25s ease-in-out,opacity 0ms;
+}
+.header-li-img-op{
+  margin-top: 10px;
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  letter-spacing: 0.35px;
+  font-weight: 300;
+}
+
+.header-li-bottom{
+  padding: 0 20%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.header-depth2-link{
+  position: relative;
+  font-size: 14px;
+  line-height: 68px;
+  margin-right: 60px;
+  color: #fff;
+  font-weight: 300;
+}
+.header-depth2-link i{
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header-depth2-link .icon-link-ext{
+  right: -30px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+.header-depth2-link::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.4s;
+}
+.header-depth2-link:hover::after{
+width: 100%;
+}
 
 
 .header-depth1 > li >a{
