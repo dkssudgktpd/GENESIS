@@ -3,12 +3,17 @@ window.onload = function () {
     let headerDepth2 = $('.header-depth2');
     $.each(mainMenu,function(index, item){
         $(this).click(function(event){
+        if($(this).hasClass('main-menu-focus')){
+            mainMenu.removeClass('main-menu-focus');
+        }else{
+            mainMenu.removeClass('main-menu-focus');
+            $(this).toggleClass('main-menu-focus');
+        }
             event.preventDefault();
-            headerDepth2.slideUp(1);
+            headerDepth2.stop().slideUp(1);
             headerDepth2.eq(index).stop().slideToggle();
         })
     })
-    let 
 
     new Swiper('.sw-model1', {
         pagination: {
@@ -54,4 +59,28 @@ window.onload = function () {
         model_List_All.removeClass('model-list-active');
         $(this).addClass('model-list-active');
     });
+
+    // 헤더 검색 메뉴 클릭
+    let headerMenu = $('.header-search-menu');
+    let searchWrap = $('.search-menu-wrap');
+    headerMenu.click(function(){
+        $(this).toggleClass('header-search-menu-open');
+        let temp = $(this).hasClass('header-search-menu-open');
+        if(temp){
+            searchWrap.stop().slideDown();
+        }else{
+            searchWrap.hide();
+        }
+    })
+
+    // visual swiper
+    new Swiper('.sw-visual',{
+        pagination:{
+            el : '.sw-visual-pg',
+            clickable : true
+        },
+        loop: true,
+        speed: 600
+
+    })
 }
