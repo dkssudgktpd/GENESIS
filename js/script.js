@@ -74,13 +74,56 @@ window.onload = function () {
     })
 
     // visual swiper
-    new Swiper('.sw-visual',{
+    let swVisual = new Swiper('.sw-visual',{
         pagination:{
             el : '.sw-visual-pg',
             clickable : true
         },
         loop: true,
-        speed: 600
+        speed: 600,
+        autoplay : {
+            delay : 5000
+        }
+    })
+    // 스와이퍼의 5번 찾기
+    let swLinkCh = $('.sw-visual-link-ch');
+    swVisual.on('slideChange',function(){
+        if(swVisual.realIndex == 5){
+            // html을 바꾸자
+            swLinkCh.html(`영상 보기
+            <i class="icon-right-open"></i>`)
+        }else{
+            // 다시 원상태도 돌려주자
+            swLinkCh.html(`견적내기
+            <i class="icon-right-open"></i>`)
+        }
+    })
 
+    // 비주얼 스와이퍼 play(pause) 버튼클릭
+    let visualPause = $('.visual-pause');
+    let visualPlay = $('.visual-play');
+    visualPause.click(function(){
+        $(this).hide();
+        visualPlay.show();
+        swVisual.autoplay.stop();
+    })
+    visualPlay.click(function(){
+        $(this).hide();
+        visualPause.show();
+        swVisual.autoplay.start();
+    })
+
+    let qwe = $('.qwe');
+    let a = $('.a');
+    let b = $('.b');
+    let c = $('.c');
+    a.click(function(){
+        qwe.text('ㅁㄴㅇ') 
+    })
+    b.click(function(){
+        qwe.text('바뀌어요') 
+    })
+    c.click(function(){
+        qwe.text('이렇게해야하나')
     })
 }

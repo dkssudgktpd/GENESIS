@@ -1,4 +1,6 @@
 
 .icon-search:before { content: '\e800'; } /* '' */
 .icon-right-open:before { content: '\e801'; } /* '' */
+.icon-pause:before { content: '\e802'; } /* '' */
+.icon-play:before { content: '\e803'; } /* '' */
 .icon-link-ext:before { content: '\f08e'; } /* '' */
