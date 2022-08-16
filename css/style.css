@@ -55,7 +55,6 @@ body {
 }
 section{
   padding: 120px 0;
-  border-bottom: 1px solid #fff;
 }
 
 /* header */
@@ -977,25 +976,93 @@ height: 90px;
 .model{
   padding: 120px;
 }
-.model-wrap{
-  padding-left: 210px;
+.car-model-wrap{
+  padding: 0 140px;
 }
-.model-select{
-  width: 300px;
-  height: 200px;
+
+.car-model-top{
+  padding-left: 180px;
+}
+.car-model-top h2{
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 50px;
+}
+.car-model-top p{
+  font-size: 16px;
+  color: #ccc;
+  line-height: 28px;
+  margin-top: 20px;
+  font-weight: 300;
+}
+.car-model-depth1{
+  padding-top: 30px;
+  position: relative;
+}
+.car-model-depth1 button{
+  border: 0;
   background-color: transparent;
-  border: 0;
-  border-bottom: 1px solid #fff;
+  width: 300px;
+  cursor: pointer;
+  padding: 10px;
+  text-align: left;
 }
-.model-select option{
-  display: block;
+.car-model-mainmenu{
+  position: relative;
   color: #fff;
-  width: 100%;
-  line-height: 100px;
-  border: 0;
-  border-bottom: 1px solid #fff;
-  background-color: #000;
+  font-size: 16px;
 }
+.car-model-mainmenu::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+.car-model-mainmenu::after{
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  width: 7px;
+  height: 13px;
+  background: url(../images/ico-arrow-white.jpg) no-repeat center;
+  background-size: cover;
+}
+.car-model-mainmenu-active::after{
+  transform: translateY(-50%) rotate(90deg);
+}
+.car-model-depth2{
+  position: absolute;
+  left: 0;
+  top: 100%;
+  visibility: hidden;
+  z-index: 9999;
+}
+.car-model-depth2-active{
+  visibility: visible;
+}
+.car-model-depth2 li button{
+  font-size: 14px;
+  color: #bbb;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  line-height: 25px;
+}
+.car-model-depth2 li button:hover{
+  color: #fff;
+}
+.car-model-depth2 li:last-child button{
+  border: 0;
+}
+.car-model-bottom{
+  padding-left: 180px;
+}
+
+
 /*  */
 /*  */
 /*  */

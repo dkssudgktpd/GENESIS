@@ -15,7 +15,7 @@ window.onload = function () {
         })
     })
 
-    new Swiper('.sw-model1', {
+    new Swiper('.sw-header-model', {
         pagination: {
             el: '.sw-model-pg'
         },
@@ -113,17 +113,44 @@ window.onload = function () {
         swVisual.autoplay.start();
     })
 
-    let qwe = $('.qwe');
-    let a = $('.a');
-    let b = $('.b');
-    let c = $('.c');
-    a.click(function(){
-        qwe.text('ㅁㄴㅇ') 
+    let carModelMainmenu = $('.car-model-mainmenu');
+    let carModelDepth2 = $('.car-model-depth2');
+    let carModelBt = $('.car-model-depth2 > li > button');
+
+    carModelMainmenu.click(function(){
+        carModelDepth2.toggleClass('car-model-depth2-active');
+        carModelMainmenu.toggleClass('car-model-mainmenu-active');
+    });
+
+    if(carModelDepth2.hasClass('car-model-depth2.active')){
+        $('.wrap').click(function(){
+            carModelDepth2.removeClass('car-model-depth2-active');
+            carModelMainmenu.removeClass('car-model-mainmenu-active');
+        })
+    }
+
+    let swCarModel = new Swiper('.sw-model',{
+        observer: true,
+        observeParents: true,
+        slidesPerView: 3,
     })
-    b.click(function(){
-        qwe.text('바뀌어요') 
+
+    $('.sw-model').find('.car-all').show();
+    $.each(carModelBt,function(index){
+        $(this).click(function(){ 
+            carModelMainmenu.text(carModelBt.eq(index).text());
+            carModelDepth2.removeClass('car-model-depth2-active');
+            carModelMainmenu.removeClass('car-model-mainmenu-active');
+            if(index == 0){
+
+            }else if(index == 1){
+
+            }else if(index == 2){
+
+            }
+        })
     })
-    c.click(function(){
-        qwe.text('이렇게해야하나')
-    })
+
+
+
 }
