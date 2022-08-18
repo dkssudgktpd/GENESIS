@@ -134,6 +134,12 @@ window.onload = function () {
         observeParents: true,
         slidesPerView: 3,
     })
+    let data  = [
+        {title : 'a'},
+        {title : 'b'},
+        {title : 'c'}
+    ];
+    let b = $('.sw-model').find('.swiper-wrapper');
 
     $('.sw-model').find('.car-all').show();
     $.each(carModelBt,function(index){
@@ -142,15 +148,25 @@ window.onload = function () {
             carModelDepth2.removeClass('car-model-depth2-active');
             carModelMainmenu.removeClass('car-model-mainmenu-active');
             if(index == 0){
-
+                b.html(
+                    `
+                    <div class="swiper-slide"><a href="#">힘들당</a></div>
+                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
+                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
+                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
+                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
+                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
+                    `
+                );
             }else if(index == 1){
-
+                
             }else if(index == 2){
-
+                
             }
         })
     })
-
-
+    $('.q').click(function(){
+        console.log(data.length);
+    });
 
 }
