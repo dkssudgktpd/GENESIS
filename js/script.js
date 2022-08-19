@@ -133,14 +133,75 @@ window.onload = function () {
         observer: true,
         observeParents: true,
         slidesPerView: 3,
+        spaceBetween : 40
     })
-    let data  = [
-        {title : 'a'},
-        {title : 'b'},
-        {title : 'c'}
-    ];
-    let b = $('.sw-model').find('.swiper-wrapper');
-
+    let kindCar = $('.sw-model').find('.swiper-wrapper');
+    let carmodelData = [
+        {
+            modelkind : 'sedan',
+            modelname : 'G70',
+            modelev : '',
+            modelatt : 'SHOOTING BRAKE',
+            modelimg : 'images/g70_brake.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G70',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/g70.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G80',
+            modelev : 'car-ev',
+            modelatt : 'ELECTRIFIED',
+            modelimg : 'images/g80_el.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G80',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/g80.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G90',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/g90.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV60',
+            modelev : 'car-ev',
+            modelatt : '',
+            modelimg : 'images/gv60.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV70',
+            modelev : 'car-ev',
+            modelatt : 'ELECTRIFIED',
+            modelimg : 'images/gv70_el.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV70',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/gv70.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV80',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/gv80.webp',
+        }
+    ]
+    
     $('.sw-model').find('.car-all').show();
     $.each(carModelBt,function(index){
         $(this).click(function(){ 
@@ -148,25 +209,37 @@ window.onload = function () {
             carModelDepth2.removeClass('car-model-depth2-active');
             carModelMainmenu.removeClass('car-model-mainmenu-active');
             if(index == 0){
-                b.html(
-                    `
-                    <div class="swiper-slide"><a href="#">힘들당</a></div>
-                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
-                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
-                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
-                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
-                    <div class="swiper-slide"><a href="#">이게뭐누</a></div>
-                    `
-                );
+                kindCar.empty();
+                for(let i = 0; i < carmodelData.length; i++){
+                    modeldatain(carmodelData[i]);
+                }
             }else if(index == 1){
-                
+                kindCar.empty();
+                for(let i = 0; i < 5; i++){
+                    modeldatain(carmodelData[i]);
+                }
             }else if(index == 2){
-                
+                kindCar.empty();
+                for(let i = 5; i < carmodelData.length; i++){
+                    modeldatain(carmodelData[i]);
+                }
             }
         })
+
     })
-    $('.q').click(function(){
-        console.log(data.length);
-    });
+    function modeldatain (item){
+        kindCar.append(`
+        <div class="swiper-slide">
+            <div class="kind-car">
+                <h3>${item.modelname}
+                    <i class="${item.modelev}"></i>
+                    <p>${item.modelatt}</p>
+                </h3>
+                <img src="${item.modelimg}" alt="">
+                <span>자세히 보기</span>
+            </div>
+        </div>
+        `);
+    }
 
 }
