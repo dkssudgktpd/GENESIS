@@ -34,7 +34,6 @@ window.onload = function () {
     let model_All = $('.model-all');
     let model_Sedan = $('.model-sedan');
     let model_Suv = $('.model-suv');
-
     model_List_All.click(function () {
         model_Sedan.hide();
         model_Suv.hide();
@@ -47,7 +46,7 @@ window.onload = function () {
         model_Sedan.show();
         model_Suv.hide();
         model_All.hide();
-        model_List_All.removeClass('model-list-active');
+        model_List_All.addClass('model-list-active');
         model_List_Suv.removeClass('model-list-active');
         $(this).addClass('model-list-active');
     });
@@ -59,7 +58,6 @@ window.onload = function () {
         model_List_All.removeClass('model-list-active');
         $(this).addClass('model-list-active');
     });
-
     // 헤더 검색 메뉴 클릭
     let headerMenu = $('.header-search-menu');
     let searchWrap = $('.search-menu-wrap');
@@ -129,13 +127,18 @@ window.onload = function () {
         })
     }
 
-    let swCarModel = new Swiper('.sw-model',{
+        new Swiper('.sw-model',{
         observer: true,
         observeParents: true,
         slidesPerView: 3,
-        spaceBetween : 40
+        spaceBetween : 40,
+        pagination:{
+            el : '.car-pg',
+            clickable: true,
+        }
     })
     let kindCar = $('.sw-model').find('.swiper-wrapper');
+
     let carmodelData = [
         {
             modelkind : 'sedan',
@@ -201,32 +204,19 @@ window.onload = function () {
             modelimg : 'images/gv80.webp',
         }
     ]
+
+
+
+
+
     
-    $('.sw-model').find('.car-all').show();
     $.each(carModelBt,function(index){
         $(this).click(function(){ 
-            carModelMainmenu.text(carModelBt.eq(index).text());
             carModelDepth2.removeClass('car-model-depth2-active');
             carModelMainmenu.removeClass('car-model-mainmenu-active');
-            if(index == 0){
-                kindCar.empty();
-                for(let i = 0; i < carmodelData.length; i++){
-                    modeldatain(carmodelData[i]);
-                }
-            }else if(index == 1){
-                kindCar.empty();
-                for(let i = 0; i < 5; i++){
-                    modeldatain(carmodelData[i]);
-                }
-            }else if(index == 2){
-                kindCar.empty();
-                for(let i = 5; i < carmodelData.length; i++){
-                    modeldatain(carmodelData[i]);
-                }
-            }
         })
-
     })
+
     function modeldatain (item){
         kindCar.append(`
         <div class="swiper-slide">
@@ -241,5 +231,25 @@ window.onload = function () {
         </div>
         `);
     }
+    carmodelData.map((item) => {
+        modeldatain(item);
+    })
+    // carmodelData.map(c => modeldatain(c));
 
+    const button = document.querySelector(".car-model-depth2");
+    button.addEventListener('click',(event) => {
+        let result = carmodelData;
+        const value = event.target.value;
+        document.querySelector(".car-model-depth1 button").innerText = value.toUpperCase();
+        if(value !== "all"){
+            result = result.filter(a => a.modelkind === value);
+        }
+            kindCar.empty();
+            result.map(b => modeldatain(b));
+    })
+
+    //awards 슬라이드
+    let swAwards = new Swiper('.sw-awards',function(){
+
+    })
 }
