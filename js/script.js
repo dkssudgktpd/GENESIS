@@ -127,16 +127,7 @@ window.onload = function () {
         })
     }
 
-        new Swiper('.sw-model',{
-        observer: true,
-        observeParents: true,
-        slidesPerView: 3,
-        spaceBetween : 40,
-        pagination:{
-            el : '.car-pg',
-            clickable: true,
-        }
-    })
+
     let kindCar = $('.sw-model').find('.swiper-wrapper');
 
     let carmodelData = [
@@ -234,7 +225,6 @@ window.onload = function () {
     carmodelData.map((item) => {
         modeldatain(item);
     })
-    // carmodelData.map(c => modeldatain(c));
 
     const button = document.querySelector(".car-model-depth2");
     button.addEventListener('click',(event) => {
@@ -242,14 +232,32 @@ window.onload = function () {
         const value = event.target.value;
         document.querySelector(".car-model-depth1 button").innerText = value.toUpperCase();
         if(value !== "all"){
-            result = result.filter(a => a.modelkind === value);
+            result = result.filter(kind => kind.modelkind === value);
         }
             kindCar.empty();
-            result.map(b => modeldatain(b));
+            result.map(item => modeldatain(item));
     })
-
+    const swModel = new Swiper('.sw-model',{
+        observer: true,
+        observeParents: true,
+        slidesPerView: 3,
+        spaceBetween : 40,
+        pagination:{
+            el : '.car-pg',
+            clickable: true,
+        }
+    })
     //awards 슬라이드
-    let swAwards = new Swiper('.sw-awards',function(){
+    let swAwards = new Swiper('.sw-awards',{
+        effect: "fade",
+        loop:true,
+        autoplay:{
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        speed:1000,
+        allowTouchMove: false,
+    });
 
-    })
+    
 }

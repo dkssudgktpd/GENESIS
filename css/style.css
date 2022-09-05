@@ -1206,6 +1206,12 @@ height: 90px;
   padding-left: 340px;
   padding-bottom: 70px;
 }
+.sw-awards .swiper-wrapper{
+  position: relative;
+}
+.sw-awards .swiper-slide{
+  position: relative;
+}
 .awards-1{
   width: 100%;
   height: 850px;
@@ -1241,6 +1247,73 @@ height: 90px;
   height: 850px;
   background: url(../images/awards-6.webp) no-repeat center;
   background-size: cover;
+}
+.awards-txt{
+  position: absolute;
+  bottom: 170px;
+  left: 380px;
+  width: 520px;
+}
+.awards-title{
+  font-size: 43px;
+  font-weight: 300;
+  letter-spacing: -2.5px;
+}
+.awards-des{
+  margin-top: 15px;
+  line-height: 28px;
+  font-size: 16px;
+}
+.awards-tap{
+  width: 70%;
+  height: 110px;
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  background-color: #000;
+  z-index: 1;
+  padding-bottom: 40px;
+}
+.awards-tap ul{
+  font-size: 0;
+}
+.awards-tap li{
+  width: calc(100% / 6);
+  height: 100%;
+  position: relative;
+  display: inline-block;
+}
+.awards-tap span{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+}
+.awards-tap li:hover span{
+  transition: width 0.2s;
+  width: 100%;
+}
+
+.awards-tap button{
+  background-color: transparent;
+  border: 0;
+  color: #808080;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  line-height: 18px;
+  width: 100%;
+  text-align: left;
+  transition: color 0.3s;
+  padding: 20px 20px;
+  letter-spacing: -0.7px;
+  font-weight: 300;
+  border-top: 2px solid #808080;
+}
+.awards-tap button:hover{
+  color: #fff;
 }
 /*  */
 /*  */
