@@ -251,13 +251,74 @@ window.onload = function () {
     let swAwards = new Swiper('.sw-awards',{
         effect: "fade",
         loop:true,
-        autoplay:{
-            delay: 2500,
-            disableOnInteraction: false,
-        },
         speed:1000,
         allowTouchMove: false,
     });
-
     
+    let awardsTapMenu = $('.awards-tapmenu');
+    let aTapmenuTotal = awardsTapMenu.length;
+    let awardsBar = $('.awards-bar');
+    let awardscount = 0;
+    let aTSelected = 1;
+    let awardsTimer;
+    let awardsState;
+    awardsMove(0)
+    swAwards.slideTo(1,0,false)
+    
+
+    function awardsMove(index){
+        console.log(swAwards.realIndex)
+        aTSelected = index;
+        awardsTapMenu.removeClass('active');
+        awardsTapMenu.eq(index).addClass('active');
+        awardsState = 'play';
+        let acbar = awardsBar.eq(index);
+        clearInterval(awardsTimer)
+            awardsTimer = setInterval(function(){
+                awardscount++;
+                acbar.css('width', awardscount + '%' )
+                if(awardscount >= 100){
+                    awardscount = 0;
+                    clearInterval(awardsTimer);
+                    awardsBar.css('width', 0)
+                    aTSelected++;
+                    swAwards.slideTo(aTSelected + 1,500,false)
+                    if(aTSelected >= aTapmenuTotal){
+                        aTSelected = 0;
+                    }
+                    awardsMove(aTSelected);
+                }
+            },50)
+
+    }
+
+    let awardsBt = $('.awards-bt');
+    awardsBt.click(function(){
+        if(awardsState == 'play'){
+            awardsState = 'pause'
+            clearInterval(awardsTimer);
+            awardsBt.find('i').removeClass('icon-pause')
+            awardsBt.find('i').addClass('icon-play')
+        }else{
+            awardsMove(aTSelected);
+            awardsBt.find('i').removeClass('icon-play')
+            awardsBt.find('i').addClass('icon-pause')
+            awardsState = 'play'
+        }
+    })
+    $.each(awardsTapMenu,function(index){
+        $(this).click(function(){
+            aTSelected = index;
+            awardsBar.css('width',0);
+            awardscount = 0;
+            awardsTapMenu.removeClass('active');
+            awardsTapMenu.eq(index).addClass('active');
+            swAwards.slideTo(index + 1,500,false)
+            if(awardsState == 'play'){
+                awardsMove(index)
+            }
+        })
+    })
+
+
 }
