@@ -267,7 +267,6 @@ window.onload = function () {
     
 
     function awardsMove(index){
-        console.log(swAwards.realIndex)
         aTSelected = index;
         awardsTapMenu.removeClass('active');
         awardsTapMenu.eq(index).addClass('active');
