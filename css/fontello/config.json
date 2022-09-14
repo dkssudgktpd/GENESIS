@@ -77,6 +77,24 @@
       "css": "up-open",
       "code": 128279,
       "src": "fontawesome"
+    },
+    {
+      "uid": "c311c48d79488965b0fab7f9cd12b6b5",
+      "css": "left-open",
+      "code": 59396,
+      "src": "entypo"
+    },
+    {
+      "uid": "1e89103762be72b0720eda0468e62b90",
+      "css": "globe",
+      "code": 59397,
+      "src": "linecons"
+    },
+    {
+      "uid": "3e1bb74572a30486bd647304d9fcaff6",
+      "css": "lock",
+      "code": 59398,
+      "src": "typicons"
     }
   ]
 }

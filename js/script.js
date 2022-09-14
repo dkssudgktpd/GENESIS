@@ -305,6 +305,7 @@ window.onload = function () {
             awardsState = 'play'
         }
     })
+
     $.each(awardsTapMenu,function(index){
         $(this).click(function(){
             aTSelected = index;
@@ -318,6 +319,29 @@ window.onload = function () {
             }
         })
     })
-
-
+    let SwFt = new Swiper('.sw-footer',{
+        direction: "vertical",
+        loop:true,
+        autoplay:{
+            delay:5000,
+        },
+        speed: 1000,
+        navigation:{
+            prevEl: '.sw-ft-prev',
+            nextEl: '.sw-ft-next',
+        }
+    })
+    $('.sw-ft-pause').click(function(){
+        let pause = $(this).find('> i');
+        console.log(pause)
+        if(pause.hasClass('icon-pause')){
+            pause.removeClass('icon-pause')
+            pause.addClass('icon-play')
+            SwFt.autoplay.stop()
+        }else{
+            pause.removeClass('icon-play')
+            pause.addClass('icon-pause')
+            SwFt.autoplay.start()
+        }
+    })
 }
