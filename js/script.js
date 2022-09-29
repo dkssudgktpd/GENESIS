@@ -1,4 +1,20 @@
 window.onload = function () {
+    const modal = $('.modal');
+    const modalClose = $('.modal-close');
+    const modalWrap = $('.modal-wrap');
+    modal.click(function () {
+        modal.fadeOut(500);
+        $('body').css("overflow", "auto");
+    })
+    modalClose.click(function () {
+        modal.fadeOut(500);
+        $('body').css("overflow", "auto");
+    })
+    modalWrap.click(function (event) {
+        event.stopPropagation();
+    })
+
+
     let mainMenu = $('.main-menu');
     let headerDepth2 = $('.header-depth2');
     $.each(mainMenu,function(index, item){
