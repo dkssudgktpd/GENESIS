@@ -1,4 +1,69 @@
 window.onload = function () {
+    let carmodelData = [
+        {
+            modelkind : 'sedan',
+            modelname : 'G70',
+            modelev : '',
+            modelatt : 'SHOOTING BRAKE',
+            modelimg : 'images/g70_brake.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G70',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/g70.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G80',
+            modelev : 'car-ev',
+            modelatt : 'ELECTRIFIED',
+            modelimg : 'images/g80_el.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G80',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/g80.webp',
+        },
+        {
+            modelkind : 'sedan',
+            modelname : 'G90',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/g90.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV60',
+            modelev : 'car-ev',
+            modelatt : '',
+            modelimg : 'images/gv60.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV70',
+            modelev : 'car-ev',
+            modelatt : 'ELECTRIFIED',
+            modelimg : 'images/gv70_el.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV70',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/gv70.webp',
+        },
+        {
+            modelkind : 'suv',
+            modelname : 'GV80',
+            modelev : '',
+            modelatt : '',
+            modelimg : 'images/gv80.webp',
+        }
+    ]
     const modal = $('.modal');
     const modalClose = $('.modal-close');
     const modalWrap = $('.modal-wrap');
@@ -13,6 +78,61 @@ window.onload = function () {
     modalWrap.click(function (event) {
         event.stopPropagation();
     })
+
+    // mobile
+        let mbMenu = $(".mb-menu");
+        const mbWrap = $(".mb-wrap");
+        mbMenu.click(function(){
+            $(this).toggleClass("active");
+            mbWrap.toggleClass("active");
+        })
+    const mbMainMenu = $(".mb-mainmenu");
+    const mbDepth2 = $(".mb-list2 > li");
+    const mbBack = $(".mb-back");
+    const mbCarlist = $(".mb-carlist");
+    function mbcar(){
+        let mbsedan = carmodelData.filter(data => data.modelkind == "sedan");
+        let mbsuv = carmodelData.filter(data => data.modelkind == "suv");
+        let html = "";
+        mbsedan.map((item) => {
+            html += `
+            <li>
+            <h4>${item.modelname}</h4>
+            <p class="mb-car-txt">${item.modelatt}</p>
+            <img src="${item.modelimg}" alt="">
+            </li>
+            `
+            mbCarlist[0].innerHTML = html;
+        });
+        html = "";
+        mbsuv.map((item) => {
+            html += `
+            <li>
+            <h4>${item.modelname}</h4>
+            <p class="mb-car-txt">${item.modelatt}</p>
+            <img src="${item.modelimg}" alt="">
+            </li>
+            `
+            mbCarlist[1].innerHTML = html;
+        })
+    }
+    mbcar()
+    $.each(mbMainMenu,function(index){
+        $(this).click(function(){
+            mbDepth2.eq(index).addClass("active");
+        })
+    })
+    mbBack.click(function(){
+        mbDepth2.removeClass("active");
+    })
+    const mbAcco = $(".mb-accordion");
+    $.each(mbAcco,function(index){
+        $(this).click(function(){
+            mbCarlist.eq(index).stop().slideToggle();
+        })
+    })
+
+
 
 
     let mainMenu = $('.main-menu');
@@ -145,77 +265,6 @@ window.onload = function () {
 
 
     let kindCar = $('.sw-model').find('.swiper-wrapper');
-
-    let carmodelData = [
-        {
-            modelkind : 'sedan',
-            modelname : 'G70',
-            modelev : '',
-            modelatt : 'SHOOTING BRAKE',
-            modelimg : 'images/g70_brake.webp',
-        },
-        {
-            modelkind : 'sedan',
-            modelname : 'G70',
-            modelev : '',
-            modelatt : '',
-            modelimg : 'images/g70.webp',
-        },
-        {
-            modelkind : 'sedan',
-            modelname : 'G80',
-            modelev : 'car-ev',
-            modelatt : 'ELECTRIFIED',
-            modelimg : 'images/g80_el.webp',
-        },
-        {
-            modelkind : 'sedan',
-            modelname : 'G80',
-            modelev : '',
-            modelatt : '',
-            modelimg : 'images/g80.webp',
-        },
-        {
-            modelkind : 'sedan',
-            modelname : 'G90',
-            modelev : '',
-            modelatt : '',
-            modelimg : 'images/g90.webp',
-        },
-        {
-            modelkind : 'suv',
-            modelname : 'GV60',
-            modelev : 'car-ev',
-            modelatt : '',
-            modelimg : 'images/gv60.webp',
-        },
-        {
-            modelkind : 'suv',
-            modelname : 'GV70',
-            modelev : 'car-ev',
-            modelatt : 'ELECTRIFIED',
-            modelimg : 'images/gv70_el.webp',
-        },
-        {
-            modelkind : 'suv',
-            modelname : 'GV70',
-            modelev : '',
-            modelatt : '',
-            modelimg : 'images/gv70.webp',
-        },
-        {
-            modelkind : 'suv',
-            modelname : 'GV80',
-            modelev : '',
-            modelatt : '',
-            modelimg : 'images/gv80.webp',
-        }
-    ]
-
-
-
-
-
     
     $.each(carModelBt,function(index){
         $(this).click(function(){ 

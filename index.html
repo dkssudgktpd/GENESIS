@@ -62,6 +62,135 @@
       </ul>
     </div>
   </div>
+  <div class="mb-wrap">
+    <div class="mb-search">
+      <form action="">
+        <input type="text" placeholder="검색어를 입력해주세요.">
+        <button><i class="icon-search"></i></button>
+      </form>
+    </div>
+    <ul class="mb-list">
+      <li>
+        <button class="mb-mainmenu">모델</button>
+        <i class="fas fa-chevron-right"></i>
+      </li>
+      <li>
+        <button class="mb-mainmenu">구매</button>
+        <i class="fas fa-chevron-right"></i>
+      </li>
+      <li>
+        <button class="mb-mainmenu">체험</button>
+        <i class="fas fa-chevron-right"></i>
+      </li>
+      <li>
+        <button class="mb-mainmenu">멤버스</button>
+        <i class="fas fa-chevron-right"></i>
+      </li>
+      <li>
+        <button class="mb-mainmenu">제네시스</button>
+        <i class="fas fa-chevron-right"></i>
+      </li>
+      <li>
+        <button class="mb-mainmenu">고객센터</button>
+        <i class="fas fa-chevron-right"></i>
+      </li>
+      <li>
+        <button class="mb-mainmenu">마이 페이지</button>
+      </li>
+    </ul>
+    <ul class="mb-list2">
+      <li>
+        <h3>모델
+          <i class="fas fa-chevron-left mb-back"></i>
+        </h3>
+        <button class="mb-accordion">SEDAN
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <ul class="mb-carlist">
+        </ul>
+        <button class="mb-accordion">SUV
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <ul class="mb-carlist">
+        </ul>
+      </li>
+      <li>
+        <h3>구매
+          <i class="fas fa-chevron-left mb-back"></i>
+        </h3>
+        <button class="mb-submenu">견적내기</button>
+        <button class="mb-submenu">구매 프로그램
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">전기차 구매가이드</button>
+        <button class="mb-submenu">구매 상담 신청</button>
+        <button class="mb-submenu">제네시스 스펙트럼</button>
+        <button class="mb-submenu">사양 조회하기</button>
+      </li>
+      <li>
+        <h3>체험
+          <i class="fas fa-chevron-left mb-back"></i>
+        </h3>
+        <button class="mb-submenu">스페이스
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">시승 신청</button>
+        <button class="mb-submenu">전시장 찾기</button>
+        <button class="mb-submenu">제네시스 드라이빙 익스피리언스</button>
+      </li>
+      <li>
+        <h3>멤버스
+          <i class="fas fa-chevron-left mb-back"></i>
+        </h3>
+        <button class="mb-submenu">제네시스 멤버십
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">제네시스 커넥티드 서비스
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">디지털 서비스
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">차량관리 서비스
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+      </li>
+      <li>
+        <h3>제네시스
+          <i class="fas fa-chevron-left mb-back"></i>
+        </h3>
+        <button class="mb-submenu">브랜드
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">콘셉트카
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">제네시스X골프
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">모터쇼
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">로드트립
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+      </li>
+      <li>
+        <h3>제네시스
+          <i class="fas fa-chevron-left mb-back"></i>
+        </h3>
+        <button class="mb-submenu">고객센터 안내</button>
+        <button class="mb-submenu">공지사항</button>
+        <button class="mb-submenu">이벤트</button>
+        <button class="mb-submenu">자주 묻는 질문</button>
+        <button class="mb-submenu">다운로드 센터
+          <i class="fas fa-chevron-right mb-depth3-btn"></i>
+        </button>
+        <button class="mb-submenu">PR 센터</button>
+      </li>
+      
+    </ul>
+  </div>
   <div class="wrap">
     <header class="header">
       <div class="inner clearfix">
@@ -559,7 +688,6 @@
                           </ul>
                         </li>
                       </ul>
-
                     </div>
                     <div class="header-li-img">
                       <div class="header-li-img-box">
@@ -598,8 +726,6 @@
                           <ul class="header-depth2-menu2">
                             <li><a href="#">브랜드 소개</a></li>
                             <li><a href="#">비전</a></li>
-
-
                           </ul>
                         </li>
                         <li><a href="#" class="header-depth2-mainmenu">콘셉트카</a>
@@ -665,12 +791,19 @@
           </ul>
         </div>
         <div class="header-right">
-          <ul class="header-search">
-            <li><a href="#" class="main-menu">고객센터</a>
+          <ul class="header-search clearfix">
+            <li><a href="#" class="main-menu">고객센터
+              <i class="mb-icon fas fa-headset"></i>
+            </a>
             </li>
-            <li><a href="#">마이 페이지</a></li>
+            <li><a href="#">마이 페이지
+              <i class="mb-icon2 fas fa-user"></i>
+            </a></li>
             <li><a href="#"><i class="icon-search"></i></a></li>
-            <li><button class="header-search-menu"></button></li>
+            <li>
+              <button class="header-search-menu"></button>
+              <button class="mb-menu"></button>
+            </li>
           </ul>
           <div class="header-depth2">
             <div class="depth2-inner">
