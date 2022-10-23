@@ -406,7 +406,8 @@ window.onload = function () {
         navigation:{
             prevEl: '.sw-ft-prev',
             nextEl: '.sw-ft-next',
-        }
+        },
+        allowTouchMove: false
     })
     $('.sw-ft-pause').click(function(){
         let pause = $(this).find('> i');
