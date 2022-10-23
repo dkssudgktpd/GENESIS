@@ -85,6 +85,11 @@ window.onload = function () {
         mbMenu.click(function(){
             $(this).toggleClass("active");
             mbWrap.toggleClass("active");
+            let temp = $(this).hasClass("active");
+            if(!temp){
+                mbWrap.removeClass("active");
+                mbDepth2.removeClass("active");
+            }
         })
     const mbMainMenu = $(".mb-mainmenu");
     const mbDepth2 = $(".mb-list2 > li");
@@ -428,6 +433,14 @@ window.onload = function () {
         $(this).click(function(){
             ftGnbBt.eq(index).toggleClass("active")
             footerDepth1.eq(index).find(".footer-depth2").stop().slideToggle()
+        })
+    })
+    const goTop = $(".gotop");
+    goTop.click(function(){
+        scrollTo({
+        top : 0,
+        left : 0,
+        behavior : "smooth"
         })
     })
 }
