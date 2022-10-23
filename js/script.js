@@ -303,9 +303,14 @@ window.onload = function () {
             result.map(item => modeldatain(item));
     })
     const swModel = new Swiper('.sw-model',{
+        breakpoints:{
+            1100: {
+                slidesPerView: 3
+            },
+        },
         observer: true,
         observeParents: true,
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween : 40,
         pagination:{
             el : '.car-pg',
@@ -353,7 +358,13 @@ window.onload = function () {
                     awardsMove(aTSelected);
                 }
             },50)
-
+            let temp = $(window).width();
+                const awardsTap = $(".awards-tap li");
+                if(temp < 1100){
+                    awardsTap.hide();
+                    awardsTap.eq(index).show();
+                    awardsTap.eq(index + 1).show();
+                }
     }
 
     let awardsBt = $('.awards-bt');
@@ -378,12 +389,13 @@ window.onload = function () {
             awardscount = 0;
             awardsTapMenu.removeClass('active');
             awardsTapMenu.eq(index).addClass('active');
-            swAwards.slideTo(index + 1,500,false)
+            swAwards.slideTo(index + 1,500,false);
             if(awardsState == 'play'){
                 awardsMove(index)
             }
         })
     })
+
     let SwFt = new Swiper('.sw-footer',{
         direction: "vertical",
         loop:true,
@@ -408,5 +420,13 @@ window.onload = function () {
             pause.addClass('icon-pause')
             SwFt.autoplay.start()
         }
+    })
+    const footerDepth1 = $(".footer-depth1 > li");
+    const ftGnbBt = $(".footer-depth1>li>span");
+    $.each(ftGnbBt,function(index){
+        $(this).click(function(){
+            ftGnbBt.eq(index).toggleClass("active")
+            footerDepth1.eq(index).find(".footer-depth2").stop().slideToggle()
+        })
     })
 }
