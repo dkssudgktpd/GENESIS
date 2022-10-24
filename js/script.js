@@ -335,8 +335,7 @@ window.onload = function () {
   let awardsTimer;
   let awardsState;
   awardsMove(0);
-  swAwards.slideTo(1, 0, false);
-
+//   swAwards.slideTo(1, 0, false);
   function awardsMove(index) {
     aTSelected = index;
     awardsTapMenu.removeClass("active");
@@ -443,16 +442,18 @@ window.onload = function () {
   });
 
   // window resize
+  const awardsTap = $(".awards-tap li");
   $(window).resize(function () {
     let temp = $(window).width();
     if (temp > 1100) {
-      const awardsTap = $(".awards-tap li");
       mbWrap.removeClass("active");
       mbDepth2.removeClass("active");
       mbMenu.removeClass("active");
-      awardsTap.show();
       awardsTap.css("display","inline-block");
-
+    } else {
+        headerDepth2.hide();
+        searchWrap.hide();
+        headerMenu.removeClass("header-search-menu-open")
     }
   });
 };

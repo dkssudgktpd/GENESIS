@@ -2146,12 +2146,16 @@ section {
     left: 50%;
     transform: translateX(-50%);
   }
-  .sw-awards .swiper-slide-active .awards-txt{
+  .sw-awards .swiper-slide .awards-txt{
     position: absolute;
     top: calc(100% + 110px + 3vh);
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 40px);
+    display: none;
+  }
+  .sw-awards .swiper-slide-active .awards-txt{
+    display: block;
   }
   .awards-title{
     font-size: 30px;
